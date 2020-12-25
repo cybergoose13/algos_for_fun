@@ -10,6 +10,7 @@ class JCHA:
     Intended for practicing and understand simple encryption methods.
     """
 
+    text_length= 0;
     def __init__(self) -> None:
         super().__init__();
 
@@ -19,7 +20,7 @@ class JCHA:
         text_hashed= '';
 
         for text_char in clear_text:
-            x= 200 # CHANGE TO SOMETHING MORE DYNAMIC
+            x= (ord(text_char)**2)
             unicode_value= (ord(text_char) + x);
             temp= int(math.pow( unicode_value, text_length));
             temp<< temp % text_length;
@@ -38,8 +39,8 @@ class JCHA:
                     byte_size= sys.getsizeof(hash);
             else:
                 while(byte_size != 128):
-                    #   MUST BE FIXED!!!
-                    hash+= chr(sys.getsizeof(hash) - 2);
+                    temp= sys.getsizeof(hash) % len(hash);
+                    hash+= hex(sys.getsizeof(hash) + temp).replace('0x', '');
                     byte_size= sys.getsizeof(hash);
         return hash;
 
