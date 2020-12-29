@@ -1,4 +1,5 @@
-# Packet Sniffing Code from book "Black Hat Python"
+#   Packet Sniffing Code from book "Black Hat Python"
+#   Throwing error
 
 import socket
 import os
@@ -10,6 +11,7 @@ if os.name == "nt":
 else:
     socket_protocol= socket.IPPROTO_ICMP
 
+# sniffer= socket.socket(socket.AF_INET, socket.SOCK_RAW, socket_protocol)
 sniffer= socket.socket(socket.AF_INET, socket.SOCK_RAW, socket_protocol)
 
 sniffer.bind((host, 0))

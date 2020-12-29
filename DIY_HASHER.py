@@ -1,4 +1,5 @@
-# INCOMPLETE 
+#   INCOMPLETE
+#   Moved to JCHA.py
 
 import math
 import sys
