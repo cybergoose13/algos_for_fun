@@ -1,18 +1,25 @@
 #   Packet Sniffing Code from book "Black Hat Python"
-#   Throwing error
+'''
+    To run:
+        Start-Process powershell -Verb runAs
+        python sniffer.py
+    program must have admin otherwise will throw winError 10013
+    network card must also be in monitor mode to sniff packets
+    Change host IP to valid ip address
+'''
 
 import socket
 import os
 
-host= "127.0.0.1"
+host= "192.168.x.x"
 
 if os.name == "nt":
     socket_protocol= socket.IPPROTO_IP
 else:
     socket_protocol= socket.IPPROTO_ICMP
 
-# sniffer= socket.socket(socket.AF_INET, socket.SOCK_RAW, socket_protocol)
-sniffer= socket.socket(socket.AF_INET, socket.SOCK_RAW, socket_protocol)
+
+sniffer= socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_RAW)
 
 sniffer.bind((host, 0))
 
