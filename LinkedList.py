@@ -11,7 +11,7 @@ class LinkedList:
     def __init__(self):
         self.head= None
 
-    def getTail(self):
+    def getLast(self):
         pass
 
     def size(self):
@@ -21,6 +21,12 @@ class LinkedList:
             counter += 1
             value= value.next
         return counter
+
+    def isEmpty(self):
+        if self.head == None:
+            return True
+        else:
+            return False
 
     def printList(self):
         value= self.head
