@@ -12,7 +12,12 @@ class LinkedList:
         self.head= None
 
     def getLast(self):
-        pass
+        value= self.head
+        if self.isEmpty():
+            return None
+        for x in range(self.size() -1):
+            value= value.next
+        return value.data
 
     def size(self):
         counter= 0
@@ -41,11 +46,13 @@ if __name__ == "__main__":
     second= Node('second')
     third= Node('Third')
     fourth= Node('4th')
+    last= Node('last')
     list1.head.next= second
     second.next= third
     third.next= fourth
+    fourth.next= last
 
     list2= LinkedList()
 
-    print(list1.size())
-    print(list2.size())
+    print(list1.getLast())
+    print(list2.getLast())
