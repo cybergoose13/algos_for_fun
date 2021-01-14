@@ -11,13 +11,36 @@ class LinkedList:
     def __init__(self):
         self.head= None
 
-    def getLast(self):
+    def push(self, item):
+        if self.isEmpty():
+            self.head= Node(item)
+            return
+        else:
+            self.getLastNode().next= Node(item)
+
+    def pop(self):
+        if self.isEmpty():
+            return None
+        elif self.size() == 1:
+            self.head = None
+        else:
+            value= self.head
+            for x in range(self.size() - 2):
+                value= value.next
+            value.next = None
+
+    def getLastValue(self):
+        if self.isEmpty():
+            return None
+        return self.getLastNode().data
+
+    def getLastNode(self):
         value= self.head
         if self.isEmpty():
             return None
-        for x in range(self.size() -1):
+        for x in range(self.size() - 1):
             value= value.next
-        return value.data
+        return value
 
     def size(self):
         counter= 0
@@ -26,6 +49,24 @@ class LinkedList:
             counter += 1
             value= value.next
         return counter
+
+    def indexOf(self, item):
+        counter= 0
+        value= self.head
+        while value:
+            if value.data == item:
+                return counter
+            counter += 1
+            value= value.next
+        return None
+
+    def contains(self, item):
+        value= self.head
+        while value:
+            if value.data == item:
+                return True
+            value= value.next
+        return False
 
     def isEmpty(self):
         if self.head == None:
@@ -42,17 +83,9 @@ class LinkedList:
 
 if __name__ == "__main__":
     list1= LinkedList()
-    list1.head= Node('One')
-    second= Node('second')
-    third= Node('Third')
-    fourth= Node('4th')
-    last= Node('last')
-    list1.head.next= second
-    second.next= third
-    third.next= fourth
-    fourth.next= last
+    list1.push('One')
+    list1.push('Two')
+    list1.push('Three')
+    list1.push('Four')
 
     list2= LinkedList()
-
-    print(list1.getLast())
-    print(list2.getLast())
