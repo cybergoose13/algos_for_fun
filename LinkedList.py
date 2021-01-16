@@ -29,6 +29,18 @@ class LinkedList:
                 value= value.next
             value.next = None
 
+#   Not working yet
+    def pushToFront(self, item):
+        if self.isEmpty():
+            self.push(item)
+        value= self.head
+        temp= value
+        self.head= Node(item)
+        while value:
+            item= value.next
+            value.next= temp
+            value= value.next
+
     def getLastValue(self):
         if self.isEmpty():
             return None
@@ -89,3 +101,6 @@ if __name__ == "__main__":
     list1.push('Four')
 
     list2= LinkedList()
+
+    list1.pushToFront('Zero')
+    list1.printList()
