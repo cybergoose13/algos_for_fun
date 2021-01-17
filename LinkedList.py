@@ -56,12 +56,15 @@ class LinkedList:
             value= value.next
         return counter
 
-# Not yet working...
     def toList(self):
-        lst= []
+        if self.isEmpty():
+            return None
+        value= self.head
+        lst= [value]
         for i in range(self.size()):
-            pass
-        return "Not working"
+            value= value.next
+            lst.append(value)
+        return lst
 
     def indexOf(self, item):
         counter= 0
@@ -115,5 +118,4 @@ if __name__ == "__main__":
 
     # list1.pushToFront('Zero')
     # list1.printList()
-
     
