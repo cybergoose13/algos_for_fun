@@ -33,13 +33,7 @@ class LinkedList:
     def pushToFront(self, item):
         if self.isEmpty():
             self.push(item)
-        value= self.head
-        temp= value
-        self.head= Node(item)
-        while value:
-            item= value.next
-            value.next= temp
-            value= value.next
+        return "Not yet working..."
 
     def getLastValue(self):
         if self.isEmpty():
@@ -62,6 +56,13 @@ class LinkedList:
             value= value.next
         return counter
 
+# Not yet working...
+    def toList(self):
+        lst= []
+        for i in range(self.size()):
+            pass
+        return "Not working"
+
     def indexOf(self, item):
         counter= 0
         value= self.head
@@ -71,6 +72,16 @@ class LinkedList:
             counter += 1
             value= value.next
         return None
+
+    def valueAt(self, indx):
+        if self.isEmpty():
+            return None
+        value= self.head
+        if indx > self.size() - 1:
+            return None
+        for i in range(indx):
+            value= value.next
+        return value
 
     def contains(self, item):
         value= self.head
@@ -102,5 +113,7 @@ if __name__ == "__main__":
 
     list2= LinkedList()
 
-    list1.pushToFront('Zero')
-    list1.printList()
+    # list1.pushToFront('Zero')
+    # list1.printList()
+
+    
