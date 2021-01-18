@@ -86,7 +86,7 @@ class LinkedList:
             return None
         for i in range(indx):
             value= value.next
-        return value
+        return value.data
 
     def contains(self, item):
         value= self.head
@@ -109,3 +109,15 @@ class LinkedList:
             value= value.next
 
 
+if __name__ == "__main__":
+    list1= LinkedList()
+    list1.push('One')
+    list1.push('Two')
+    list1.push('Three')
+    list1.push('Four')
+
+    list2= LinkedList()
+
+    list1.pushToFront('Zero')
+    list1.printList()
+    
