@@ -38,7 +38,7 @@ class JCHA:
                     hash= hash[:-1]
                     byte_size= sys.getsizeof(hash)
             else:
-                while(byte_size != 128):
+                while(byte_size < 128):
                     temp= sys.getsizeof(hash) % len(hash)
                     hash+= hex(sys.getsizeof(hash) + temp).replace('0x', '')
                     byte_size= sys.getsizeof(hash)
