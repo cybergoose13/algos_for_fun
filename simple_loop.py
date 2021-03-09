@@ -9,7 +9,6 @@ def loop(start_at, stop_at, step= 1):
     print(start_at)
     return loop(start_at + step, stop_at, step)
 
-# print(recur(0, 5))
 loop(0, 5)
 print('\n')
 loop(1, 10, 2)
